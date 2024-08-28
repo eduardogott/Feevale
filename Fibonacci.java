@@ -50,12 +50,21 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        int[] numbersToSearch = {5, 10, 20, 30, 40};
+        int[] numbersToSearch = {5, 10, 20, 30, 40, 45, 50, 55};
 
         SortedMap<Integer, Long> recursiveFib = new TreeMap<Integer, Long>();
         SortedMap<Integer, Long> iterativeFib = new TreeMap<Integer, Long>();
 
         for (int number : numbersToSearch) {
+            clear();
+            for (int _number : numbersToSearch) {
+                if (_number != number) {
+                    System.out.println(" " + _number);
+                } else {
+                    System.out.println("> " + _number);
+                }
+            }
+            System.out.println("\nCalculando Fibonacci de " + number + "...");
             long timeForRecursive = timeFunction(number, "recursive");
             long timeForIterative = timeFunction(number, "iterative");
 
@@ -64,10 +73,12 @@ public class Fibonacci {
 
         }
 
+        clear();
+        System.out.printf("%6s | %12s | %10s | %13s | %13s\n", "n° Fib", "Rec. (ms)", "Iter. (ms)", "Diff. (%)", "Diff. (x)");
+        System.out.printf("%6s | %12s | %10s | %13s | %13s \n", "", "", "", "", "");
         for (int key : recursiveFib.keySet()) {
-            System.out.println(key);
-            System.out.println(recursiveFib.get(key));
-            System.out.println(iterativeFib.get(key));
+            System.out.printf("%6d | %12.4f | %10.4f | %13.2f | %13.2f\n", key, ((double) recursiveFib.get(key)) / 1000000, ((double)iterativeFib.get(key)) / 1000000, ((double) recursiveFib.get(key) / iterativeFib.get(key)) * 100, (double) recursiveFib.get(key) / iterativeFib.get(key));
         }
+        System.out.println("\n");
     }
 }
