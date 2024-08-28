@@ -1,3 +1,5 @@
+// [HOBBY]
+
 #include <iostream>
 #include <cstdlib>
 #include <stdexcept>
