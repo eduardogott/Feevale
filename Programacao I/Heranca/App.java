@@ -1,3 +1,5 @@
+// [AULA]
+
 public class App {
     public static void main(String[] args) throws Exception {
         Pessoa p1 = new Pessoa("Rodrigo", "NH", "BR");
@@ -7,7 +9,8 @@ public class App {
                              "412951", "Ciencia da Computacao");
 
         
-        Sy
+        System.out.println(a1.imprimeDados());
+        System.out.println(a1.imprimirCurso());
         
     }
 }
